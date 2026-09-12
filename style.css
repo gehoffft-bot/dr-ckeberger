@@ -1,0 +1,482 @@
+:root {
+  --bg-color: #0b0c10;
+  --card-bg: #151821;
+  --card-border: #232734;
+  --primary-red: #e50914;
+  --primary-red-hover: #b80710;
+  --text-main: #f5f5f7;
+  --text-muted: #8e95a5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.style-script-regular {
+  font-family: "Style Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  height: 94vh;
+  max-height: 860px;
+  position: relative;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-color);
+}
+
+/* Startbildschirm */
+#startScreen {
+  justify-content: space-between;
+  padding: 40px 10px 20px;
+  text-align: center;
+}
+
+.brand-hero {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--primary-red);
+  margin-bottom: 6px;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.start-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Intensitäts-Bildschirm */
+.intensity-selection-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.intensity-heading {
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.intensity-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  min-height: 40px;
+  margin-bottom: 36px;
+}
+
+.chili-scale-select {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+
+.select-chili {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chili-img {
+  width: 42px;
+  height: 50px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.3);
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.select-chili.active .chili-img,
+.select-chili-btn.active .chili-img {
+  filter: none;
+  transform: scale(1.15);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px 12px;
+}
+
+.brand-title {
+  font-size: 2.6rem;
+  color: var(--primary-red);
+  line-height: 1;
+}
+
+.btn-icon {
+  background: #1c202b;
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Kartenlayout */
+.card-area {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+  text-align: center;
+}
+
+.card-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+}
+
+.task-text {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+.task-subtext {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.card-center {
+  padding: 14px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bridge-text {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+}
+
+.card-bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.drueckeberger-title {
+  font-size: 3.8rem;
+  line-height: 0.9;
+  color: var(--primary-red);
+}
+
+.shot-scale {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.shot-icon {
+  width: 28px;
+  height: 34px;
+  opacity: 0.2;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.shot-icon.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.shot-icon path {
+  fill: var(--primary-red);
+}
+
+/* --- VOLLBILD-WARN-OVERLAY MIT TEMPORÄREM ROTEM RAHMEN --- */
+.fullscreen-warning {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-color);
+  border: 4px solid var(--primary-red); /* Roter Rahmen nur während der Animation */
+  border-radius: 24px;
+  z-index: 100;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fullscreen-warning.active {
+  display: flex;
+  opacity: 1;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.4); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.warning-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.warning-icon-wrap {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.warning-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.warning-label {
+  font-size: 3.5rem;
+  color: var(--primary-red);
+  line-height: 1;
+}
+
+/* Sonderkarten-Badge (oben auf der Karte) */
+.special-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.badge-icon-wrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.badge-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-red);
+}
+
+/* Buttons */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--primary-red);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #1c202b;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 12, 16, 0.97);
+  border-radius: 24px;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+  border: 1px solid var(--card-border);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-title {
+  font-size: 2.8rem;
+  color: var(--primary-red);
+  text-align: center;
+  line-height: 1;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  padding: 12px;
+  font-size: 0.95rem;
+  resize: none;
+  font-family: inherit;
+}
+
+textarea:focus {
+  outline: 1.5px solid var(--primary-red);
+}
+
+.select-chili-row,
+.select-penalty {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.select-chili-btn,
+.select-shot {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.select-chili-btn .chili-img {
+  width: 26px;
+  height: 32px;
+}
+
+.select-chili-btn span,
+.select-shot span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cancel {
+  background: #232734;
+  color: var(--text-main);
+}

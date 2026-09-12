@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Drückeberger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Style+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- 1. Startbildschirm -->
+  <section class="screen" id="startScreen">
+    <div class="brand-hero">
+      <h1 class="hero-title style-script-regular">Drückeberger</h1>
+      <p class="hero-subtitle">Das Kartenspiel</p>
+    </div>
+    <div class="start-actions">
+      <button class="btn btn-primary" id="btnGoToIntensity">Spiel starten</button>
+      <button class="btn btn-secondary" id="btnOpenAddStart">+ Eigene Karte</button>
+    </div>
+  </section>
+
+  <!-- 2. Intensitäts-Bildschirm -->
+  <section class="screen" id="intensityScreen" style="display: none;">
+    <header>
+      <button class="btn-icon" id="btnBackToIntensityStart" title="Zurück">&#8592;</button>
+      <div class="brand-title style-script-regular">Drückeberger</div>
+      <div style="width: 40px;"></div>
+    </header>
+
+    <div class="intensity-selection-area">
+      <h2 class="intensity-heading">Wähle deine Intensität</h2>
+      <p class="intensity-desc" id="intensityDescription">Stufe 1: Ganz entspannt. Alles easy.</p>
+
+      <div class="chili-scale-select" id="chiliScaleSelect">
+        <div class="select-chili active" data-value="1">
+          <img src="chili.png" class="chili-img" alt="Chili" />
+        </div>
+        <div class="select-chili" data-value="2">
+          <img src="chili.png" class="chili-img" alt="Chili" />
+        </div>
+        <div class="select-chili" data-value="3">
+          <img src="chili.png" class="chili-img" alt="Chili" />
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="btnStartGame">Runde starten</button>
+    </div>
+  </section>
+
+  <!-- 3. Spielbildschirm -->
+  <section class="screen" id="gameScreen" style="display: none;">
+    
+    <!-- Vollbild-Warn-Overlay (liegt jetzt sauber geschützt im Spielscreen) -->
+    <div class="fullscreen-warning" id="fullscreenWarning">
+      <div class="warning-content">
+        <div class="warning-icon-wrap" id="warningIcon"></div>
+        <div class="warning-label style-script-regular" id="warningLabel">Sonderkarte</div>
+      </div>
+    </div>
+
+    <header>
+      <button class="btn-icon" id="btnBackToStart" title="Zurück">&#8592;</button>
+      <div class="brand-title style-script-regular">Drückeberger</div>
+      <button class="btn-icon" id="btnOpenAdd" title="Neue Aufgabe">+</button>
+    </header>
+
+    <main class="card-area">
+      <div class="card" id="cardElement">
+        <!-- Sonderkarten-Badge oben auf der Karte -->
+        <div class="special-badge" id="specialBadge" style="display: none;">
+          <div class="badge-icon-wrap" id="badgeIcon"></div>
+          <span class="badge-label" id="badgeLabel">Sonderkarte</span>
+        </div>
+
+        <!-- 1. Oben: Aufgabe & Untertext -->
+        <div class="card-top">
+          <p class="task-text" id="taskText"></p>
+          <p class="task-subtext" id="taskSubtext" style="display: none;"></p>
+        </div>
+
+        <!-- 2. Mitte: "... oder sei ein ..." -->
+        <div class="card-center" id="bridgeBlock">
+          <span class="bridge-text">... oder sei ein ...</span>
+        </div>
+
+        <!-- 3. Unten: Drückeberger + Schluckskala -->
+        <div class="card-bottom" id="penaltyBlock">
+          <div class="drueckeberger-title style-script-regular">Drückeberger</div>
+          <div class="shot-scale" id="shotScale">
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="btnNext">Weiter</button>
+    </div>
+  </section>
+
+  <!-- Modal zum Erstellen eigener Aufgaben -->
+  <div class="modal" id="modalAdd">
+    <div class="modal-title style-script-regular">Eigene Aufgabe</div>
+    <div class="modal-body">
+      <textarea id="inputTaskText" placeholder="Aufgabe oder Frage eingeben..."></textarea>
+      
+      <div>
+        <div class="modal-subtitle">Intensität</div>
+        <div class="select-chili-row" id="modalChiliSelect">
+          <div class="select-chili-btn active" data-value="1">
+            <img src="chili.png" class="chili-img" alt="Chili" />
+          </div>
+          <div class="select-chili-btn" data-value="2">
+            <img src="chili.png" class="chili-img" alt="Chili" />
+          </div>
+          <div class="select-chili-btn" data-value="3">
+            <img src="chili.png" class="chili-img" alt="Chili" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="modal-subtitle">Schlücke bei Weigerung</div>
+        <div class="select-penalty" id="modalShotSelect">
+          <div class="select-shot" data-value="1">
+            <svg class="shot-icon active" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <span>1</span>
+          </div>
+          <div class="select-shot" data-value="2">
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <span>2</span>
+          </div>
+          <div class="select-shot" data-value="3">
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <span>3</span>
+          </div>
+          <div class="select-shot" data-value="4">
+            <svg class="shot-icon" viewBox="0 0 24 30"><path d="M4 2 L20 2 L17 28 L7 28 Z"/></svg>
+            <span>4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-actions">
+      <button class="btn btn-cancel" id="btnCancelAdd">Abbrechen</button>
+      <button class="btn btn-primary" id="btnSaveTask">Speichern</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="cards.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
